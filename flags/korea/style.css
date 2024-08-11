@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.flag {
+    position: relative;
+    width: 30em;
+    aspect-ratio: 3/2;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flag .circle {
+    width: 10em;
+    height: 10em;
+    transform: rotate(33.7deg);
+}
+
+.flag .circle .top {
+    position: relative;
+    width: 10em;
+    height: 5em;
+    background: red;
+    border-radius: 5em 5em 0 0;
+}
+
+.flag .circle .top::before {
+    content: "";
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    background: red;
+    border-radius: 50%;
+    top: 2.5em;
+    left: 0;
+    z-index: 999999;
+}
+
+.flag .circle .bottom {
+    position: relative;
+    width: 10em;
+    height: 5em;
+    background: blue;
+    border-radius: 0 0 5em 5em;
+}
+
+.flag .circle .bottom::before {
+    content: "";
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    background: blue;
+    border-radius: 50%;
+    bottom: 2.5em;
+    right: 0;
+    z-index: 999999;
+}
+
+.leftTop, .rightTop, .rightBottom, .leftBottom{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: .2em;
+    position: absolute;
+    width: calc(10em / 2);
+    height: calc(10em / 3);
+}
+
+.leftTop div, .rightTop div, .rightBottom div, .leftBottom div{
+    background: black;
+    grid-column: var(--col);
+    grid-row: var(--row);
+}
+
+.leftTop{
+    top: 3em;
+    left: 4em;
+    transform: rotate(-56.3deg);
+}
+.rightTop{
+    top: 3em;
+    right: 4em;
+    transform: rotate(56.3deg);
+}
+.rightBottom{
+    bottom: 3em;
+    right: 4em;
+    transform: rotate(-56.3deg);
+}
+.leftBottom{
+    bottom: 3em;
+    left: 4em;
+    transform: rotate(56.3deg);
+}
