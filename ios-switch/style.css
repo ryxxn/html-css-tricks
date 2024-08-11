@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #ddd;
+    display: grid;
+    place-items: center;
+    font-size: 32px;
+}
+
+.switch {
+    position: relative;
+    width: 4em;
+    aspect-ratio: 1.618/1;
+}
+
+.switch input {
+    display: none;
+}
+
+.wrapper {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #39383C;
+    border-radius: 2em;
+}
+
+.wrapper::before{
+    content:"";
+    position: absolute;
+    height: calc(100% - .3em);
+    aspect-ratio: 1/1;
+    left: .15em;
+    bottom: .15em;
+    background: #fff;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked + .wrapper{
+    background: #68CE67;
+}
+
+input:checked + .wrapper::before{
+    transform: translateX(1.5em);
+}
