@@ -1,0 +1,66 @@
+:root{
+    --starWidth: calc(30em * 2 / 5 / 12);
+    --starHeight: calc(30em * 10 / 19 * 7 / 13 / 10);
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.flag{
+    position: relative;
+    width: 30em;
+    aspect-ratio: 19/10;
+    background: #fff;
+}
+
+.canton{
+    position: absolute;
+    width: calc(100% * 2 / 5);
+    height: calc(100% * 7 / 13);
+    background: #002664;
+    z-index: 999999;
+    padding: calc(var(--starHeight) / 2) calc(var(--starWidth) / 2);
+    box-sizing: border-box;
+}
+
+.starsLine{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var(--starWidth);
+}
+
+.star{
+    width: var(--starWidth);
+    height: var(--starHeight);
+    background: #fff;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 
+        21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+ul{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+li{
+    width: 100%;
+    height: calc(100% / 13);
+    background: #BF0A30;
+}
