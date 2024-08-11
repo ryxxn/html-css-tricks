@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.flag {
+    position: relative;
+    font-size: calc(30em / 25);
+    width: 25em;
+    aspect-ratio: 25/18;
+    background: #02529C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.horizontal {
+    position: absolute;
+    width: 100%;
+    height: 4em;
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.horizontal>div {
+    width: 100%;
+    height: 2em;
+    background: #DC1E35;
+    z-index: 1;
+}
+
+.vertical {
+    position: absolute;
+    width: 4em;
+    height: 100%;
+    left: 7em;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.vertical>div {
+    width: 2em;
+    height: 100%;
+    background: #DC1E35;
+}
