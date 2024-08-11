@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3c404b;
+}
+
+.piano {
+  display: flex;
+  padding: 4px;
+  background: #505564;
+}
+
+.key {
+  width: 40px;
+  height: 160px;
+  border: 1px solid black;
+  background-color: white;
+  cursor: pointer;
+}
+
+.black {
+  position: relative;
+  width: 24px;
+  height: 100px;
+  margin-right: -13px;
+  margin-left: -13px;
+  background-color: black;
+  z-index: 1;
+}
+
+.black:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  background-color: black;
+  z-index: 2;
+}
+
+.black[data-active="true"] {
+  background-color: #333;
+  transform: translateY(2px);
+  transition: 0.1s;
+}
+
+.white[data-active=true] {
+  background-color: #ccc;
+  transform: translateY(2px);
+  transition: 0.1s;
+}

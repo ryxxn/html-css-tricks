@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.container {
+    position: relative;
+    width: 20em;
+    aspect-ratio: 1/1;
+    border: .5em solid #fff;
+    background-color: #eeeeee;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 .3em .1em rgba(0, 0, 0, 10%);
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    height: 2em;
+    box-shadow: inset 0 0 .3em .1em rgba(0, 0, 0, 5%);
+    border-radius: 5em;
+    transform: rotate(calc(360deg / 16 * var(--order)));
+    z-index: 1;
+}
+
+.circle {
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1/1;
+    background: radial-gradient(circle at center,
+            #fff, 50%,
+            #000);
+    border-radius: 50%;
+    animation: move 5s infinite ease-in-out;
+    animation-delay: calc(.315s * var(--order));
+    transform: rotate(calc(-360deg / 16 * var(--order)));
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0) rotate(calc(-360deg / 16 * var(--order)));
+    }
+
+    50% {
+        transform: translateX(18em) rotate(calc(-360deg / 16 * var(--order)));
+    }
+
+    1000% {
+        transform: translateX(0) rotate(calc(-360deg / 16 * var(--order)));
+    }
+}
