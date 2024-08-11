@@ -1,0 +1,89 @@
+:root {
+    --deg: 45deg;
+}
+
+body {
+    margin: 0;
+    min-height:100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+ul {
+    display: flex;
+    padding: 0 25px;
+    gap: 50px;
+    position: relative;
+    list-style: none;
+    border-top: 12px solid #1e1e1e;
+}
+
+ul::before {
+    content: '';
+    width: 100%;
+    height: 12px;
+    background-color: #474646;
+    position: absolute;
+    top: -24px;
+    left: 6px;
+    transform: skewX(-45deg);
+}
+
+ul::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: #2e2e2e;
+    position: absolute;
+    top: -18px;
+    left: 100%;
+    transform: skewY(-45deg);
+}
+
+ul li {
+    position: relative;
+    top: -1px;
+    width: 2px;
+    height: 120px;
+    background-color: #fff;
+    transform-origin: 100% 0%;
+    z-index: -1;
+}
+
+ul li::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    bottom: -25px;
+    left: -25px;
+    border-radius: 50%;
+    background-image: radial-gradient(circle at center,
+            #eee,
+            #000);
+}
+
+ul li:nth-child(-n+2) {
+    animation: ballMove 2s infinite ease-out;
+    animation-fill-mode: forwards;
+}
+
+ul li:nth-last-child(-n+2) {
+    --deg: -45deg;
+    animation: ballMove 2s infinite ease-out;
+    animation-delay: 1s;
+}
+
+@keyframes ballMove {
+    50% {
+        transform: rotateZ(var(--deg));
+        animation-timing-function: ease-in;
+    }
+
+    0%, 25%, 75%, 100% {
+        transform: rotateZ(0deg);
+    }
+}
