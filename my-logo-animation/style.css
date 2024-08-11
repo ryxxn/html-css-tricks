@@ -1,0 +1,203 @@
+:root{
+    --light: #fff;
+    --dark: #333;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4px;
+    overflow: hidden;
+}
+
+.card{
+    position: relative;
+    width: 60em;
+    height: 40em;
+    background: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: skewY(15deg);
+    animation: fall .4s ease-in,
+        viberate .3s linear,
+        expand .4s linear;
+    animation-delay: 0s, .4s, calc(.4s + .3s + .4s*3);
+    animation-fill-mode: forwards;
+    top: -100em;
+}
+
+@keyframes fall{
+    to{
+        top: 0;
+    }
+}
+
+@keyframes viberate{
+    20%{
+        transform: skewY(15deg) rotate(1deg);
+    }
+    40%{
+        transform: skewY(15deg) rotate(-1deg);
+    }
+    60%{
+        transform: skewY(15deg) rotate(1deg);
+    }
+    80%{
+        transform: skewY(15deg) rotate(-1deg);
+    }
+}
+
+@keyframes expand{
+    to{
+        width: 100%;
+        height: 100vh;
+        font-size: 16px;
+        transform: skewY(0);
+    }
+}
+
+.card::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4em;
+    background: var(--light);
+    opacity: 0.9;
+    top: -4em;
+    left: 2em;
+    transform: skewX(-45deg);
+}
+
+.card::after{
+    content: "";
+    position: absolute;
+    width: 4em;
+    height: 100%;
+    background: var(--light);
+    opacity: 0.7;
+    top: -2em;
+    right: -4em;
+    transform: skewY(-45deg);
+}
+
+.logo{
+    width: 20em;
+    height: 20em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.line{
+    width: .4em;
+    height: 20em;
+    background: var(--dark);
+    animation: lineAnimation .4s linear;
+    transform: translateY(-20em);
+    animation-fill-mode: forwards;
+    animation-delay: calc(.4s + .3s);
+    z-index: 1000;
+}
+
+@keyframes lineAnimation {
+    to{
+        transform: translateY(0);
+    }
+}
+
+.circle{
+    position: relative;
+    width: 33%;
+    height: 33%;
+    background: conic-gradient(var(--dark), 0%, transparent 0);
+    border-radius: 50%;
+    animation: circleAnimation .4s linear;
+    animation-delay: calc(.4s + .3s + .4s);
+    animation-fill-mode: forwards;
+    transform: rotateX(180deg) rotateZ(90deg);
+}
+
+@keyframes circleAnimation{
+    10%{
+        background: conic-gradient(var(--dark), 10%, transparent 0);
+    }
+    20%{
+        background: conic-gradient(var(--dark), 20%, transparent 0);
+    }
+    30%{
+        background: conic-gradient(var(--dark), 30%, transparent 0);
+    }
+    40%{
+        background: conic-gradient(var(--dark), 40%, transparent 0);
+    }
+    50%{
+        background: conic-gradient(var(--dark), 50%, transparent 0);
+    }
+    60%{
+        background: conic-gradient(var(--dark), 60%, transparent 0);
+    }
+    70%{
+        background: conic-gradient(var(--dark), 70%, transparent 0);
+    }
+    80%{
+        background: conic-gradient(var(--dark), 80%, transparent 0);
+    }
+    90%{
+        background: conic-gradient(var(--dark), 90%, transparent 0);
+    }
+    100%{
+        background: conic-gradient(var(--dark), 100%, transparent 0);
+    }
+}
+
+.circle::before{
+    content: "";
+    width: calc(100% - .4em*2);
+    height: calc(100% - .4em*2);
+    background: var(--light);
+    position: absolute;
+    border-radius: 50%;
+    top: .4em;
+    left: .4em;
+}
+
+.curve{
+    position: relative;
+    width: 40%;
+    height: 100%;
+    right: .4em;
+    overflow: hidden;
+}
+
+.curve div{
+    width: 200%;
+    height: 100%;
+    box-sizing: border-box;
+    border-left: .4em solid var(--dark);
+    border-top: .4em solid var(--dark);
+    border-radius: 50% 50% 0% 100% / 100% 0% 100% 0%;
+}
+
+.curve::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: var(--light);
+    animation: curveAnimation .4s linear;
+    animation-fill-mode: forwards;
+    animation-delay: calc(.4s + .3s + .4s*2);
+}
+
+@keyframes curveAnimation {
+    to{
+        transform: translateX(20em);
+    }
+}
